@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
@@ -24,10 +24,6 @@ function App() {
         }
       )
   }, [])
-
-  function pickOneFromTwelve(group, number) {
-    return group[number];
-  }
 
   if (error) {
     return <div>Error: {error.message}</div>
