@@ -16,7 +16,7 @@ function App() {
       .then(
         (result) => {
           setIsLoaded(true);
-          setNumbers(result.data.map(n => Math.floor(n / 255 * 12)));
+          setNumbers(result.data.map(n => Math.floor(n / 256 * 12)));
         },
         (error) => {
           setIsLoaded(true);
@@ -25,31 +25,28 @@ function App() {
       )
   }, [])
 
-  if (error) {
-    return <div>Error: {error.message}</div>
-  } else if (!isLoaded) {
-    return <div>Loading...</div>
-  } else {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h2>astrodice</h2>
-          <div className="dieValue">
-            {planets[numbers[0]]}
-          </div>
-          <div className="dieValue">
-            {zodiac[numbers[1]]}
-          </div>
-          <div className="dieValue">
-            {houses[numbers[2]]} house
-          </div>
-        </header>
 
-
-      </div>
-    );
-  }
-
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h2>astrodice</h2>
+        {error && <div>Error: {error.message}</div>}
+        {!error && !isLoaded && <div>Loading...</div>}
+        {!error && isLoaded &&
+          <>
+            <div className="dieValue">
+              {planets[numbers[0]]}
+            </div>
+            <div className="dieValue">
+              {zodiac[numbers[1]]}
+            </div>
+            <div className="dieValue">
+              {houses[numbers[2]]} house
+            </div>
+          </>}
+      </header>
+    </div>
+  );
 }
 
 export default App;
