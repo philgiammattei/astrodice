@@ -1,16 +1,11 @@
+@font-face {
+  font-family: 'NoEmojiAstronomy';
+  src: local("Apple Symbol"), local("Segoe UI Symbol"), local("Arial Unicode MS"), local("Menlo"), local("sans-serif");
+  unicode-range: U+263C-2653;
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -24,16 +19,10 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.symbol {
+  font-family: 'NoEmojiAstronomy'
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+a {
+  color: #61dafb;
 }
