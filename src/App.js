@@ -88,7 +88,7 @@ function App() {
               {isShowingSymbols ? houses[numbers[2]].symbol : houses[numbers[2]].name + ' house'}
             </div>
             <div className="symbol-name-toggle">
-              <a href="#" onClick={() => setIsShowingSymbols(!isShowingSymbols)}>{isShowingSymbols ? 'show full name' : 'show symbols'}</a>
+              <button onClick={() => setIsShowingSymbols(!isShowingSymbols)}>{isShowingSymbols ? 'show full name' : 'show symbols'}</button>
             </div>
           </>}
       </header>
