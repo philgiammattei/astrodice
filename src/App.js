@@ -1,10 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [numbers, setNumbers] = useState([]);
   const [isShowingSymbols, setIsShowingSymbols] = useState(true);
 
   const planets = [
@@ -52,45 +49,25 @@ function App() {
     { name: 'twelfth', symbol: '12' },
   ];
 
-
-
-  useEffect(() => {
-    fetch('https://qrng.anu.edu.au/API/jsonI.php?length=3&type=uint8')
-      .then(res => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setNumbers(result.data.map(n => Math.floor(n / 256 * 12)));
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      )
-  }, [])
-
+  const numbers = [Math.floor(Math.random() * 12), Math.floor(Math.random() * 12), Math.floor(Math.random() * 12)];
+  console.log(numbers);
 
   return (
     <div className="App">
       <header className="App-header">
         <h2>astrodice</h2>
-        {error && <div>Error: {error.message}</div>}
-        {!error && !isLoaded && <div>Loading...</div>}
-        {!error && isLoaded &&
-          <>
-            <div className="die-value">
-              {isShowingSymbols ? <div className="symbol">{planets[numbers[0]].symbol}</div> : planets[numbers[0]].name}
-            </div>
-            <div className="die-value">
-              {isShowingSymbols ? <div className="symbol">{zodiac[numbers[1]].symbol}</div> : zodiac[numbers[1]].name}
-            </div>
-            <div className="die-value">
-              {isShowingSymbols ? houses[numbers[2]].symbol : houses[numbers[2]].name + ' house'}
-            </div>
-            <div className="symbol-name-toggle">
-              <button onClick={() => setIsShowingSymbols(!isShowingSymbols)}>{isShowingSymbols ? 'show full name' : 'show symbols'}</button>
-            </div>
-          </>}
+        <div className="die-value">
+          {isShowingSymbols ? <div className="symbol">{planets[numbers[0]].symbol}</div> : planets[numbers[0]].name}
+        </div>
+        <div className="die-value">
+          {isShowingSymbols ? <div className="symbol">{zodiac[numbers[1]].symbol}</div> : zodiac[numbers[1]].name}
+        </div>
+        <div className="die-value">
+          {isShowingSymbols ? houses[numbers[2]].symbol : houses[numbers[2]].name + ' house'}
+        </div>
+        <div className="symbol-name-toggle">
+          <button onClick={() => setIsShowingSymbols(!isShowingSymbols)}>{isShowingSymbols ? 'show full name' : 'show symbols'}</button>
+        </div>
       </header>
     </div>
   );
