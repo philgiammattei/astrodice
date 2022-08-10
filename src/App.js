@@ -35,18 +35,18 @@ function App() {
   ];
 
   const houses = [
-    { name: 'first', symbol: '1' },
-    { name: 'second', symbol: '2' },
-    { name: 'third', symbol: '3' },
-    { name: 'fourth', symbol: '4' },
-    { name: 'fifth', symbol: '5' },
-    { name: 'sixth', symbol: '6' },
-    { name: 'seventh', symbol: '7' },
-    { name: 'eighth', symbol: '8' },
-    { name: 'ninth', symbol: '9' },
-    { name: 'tenth', symbol: '10' },
-    { name: 'eleventh', symbol: '11' },
-    { name: 'twelfth', symbol: '12' },
+    { name: 'first', symbol: '①' },
+    { name: 'second', symbol: '②' },
+    { name: 'third', symbol: '③' },
+    { name: 'fourth', symbol: '④' },
+    { name: 'fifth', symbol: '⑤' },
+    { name: 'sixth', symbol: '⑥' },
+    { name: 'seventh', symbol: '⑦' },
+    { name: 'eighth', symbol: '⑧' },
+    { name: 'ninth', symbol: '⑨' },
+    { name: 'tenth', symbol: '⑩' },
+    { name: 'eleventh', symbol: '⑪' },
+    { name: 'twelfth', symbol: '⑫' },
   ];
 
   const numbers = [Math.floor(Math.random() * 12), Math.floor(Math.random() * 12), Math.floor(Math.random() * 12)];
