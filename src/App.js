@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
   const [isShowingSymbols, setIsShowingSymbols] = useState(true);
+  const [numbers] = useState([getOneInTwelve(), getOneInTwelve(), getOneInTwelve()]);
 
   const planets = [
     { name: 'sun', symbol: '☉' },
@@ -49,8 +50,6 @@ function App() {
     { name: 'twelfth', symbol: '⑫' },
   ];
 
-  const numbers = [Math.floor(Math.random() * 12), Math.floor(Math.random() * 12), Math.floor(Math.random() * 12)];
-  console.log(numbers);
 
   return (
     <div className="App">
@@ -71,6 +70,10 @@ function App() {
       </header>
     </div>
   );
+}
+
+function getOneInTwelve() {
+  return Math.floor(Math.random() * 12);
 }
 
 export default App;
